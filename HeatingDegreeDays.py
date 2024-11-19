@@ -39,13 +39,19 @@ with open('en_climate_daily_NS_8205092_2023_P1D (1).csv', "r") as data_file:
     header = next(temps)
 
     temperatures = []
+    date_times = []
     for data in temps:
-        mean_temp = data[13]  # Mean Temp (°C) is the 14th column (index 13)
+        mean_temp = data[13]  # Mean Temp (°C) is the 14th column 
+        date_time = data[4] # Trying to append the date for each temperature reading to show which day the temperature was recorded
         if mean_temp:  # Check if the mean_temp is not empty
             temp = float(mean_temp)
             temperatures.append(temp)
+            date_times.append(date_time)
+
+            
 
     hdd_count = count_heating_degree_days(temperatures)
+
     print(f'Number of Heating Degree Days: {hdd_count}')
-    print(f'Number of temperatures: {len(temperatures)}')
+    print(f'Number of temperatures reading from dataset: {len(temperatures)}')
 
