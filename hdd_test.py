@@ -11,6 +11,3 @@ class TestHDD(unittest.TestCase):
         # Create Temperature objects with values in Celsius
         temperatures = [Temperature(15), Temperature(18), Temperature(20), Temperature(25), Temperature(3), Temperature(12)]
         self.assertEqual(count_heating_degree_days(temperatures), 3)
-
-if __name__ == '__main__':
-    unittest.main()
